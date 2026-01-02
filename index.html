@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH NANDI | Digital Creator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@200;300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --zinc-950: #09090b;
+            --zinc-900: #18181b;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--zinc-950);
+            color: #a1a1aa;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        @keyframes slow-zoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        .animate-slow-zoom {
+            animation: slow-zoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { opacity: 0; }
+        .reveal.active {
+            animation: fade-in-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+</head>
+
+<body>
+
+<!-- WORKS SECTION -->
+<section id="works" class="py-24 md:py-32 bg-zinc-950">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 reveal">
+            <div class="max-w-xl">
+                <span class="text-[10px] uppercase tracking-[0.4em] text-zinc-600 mb-4 block">
+                    Archive
+                </span>
+                <h2 class="text-3xl md:text-5xl font-light text-zinc-100 tracking-tight">
+                    Selective Fragments
+                </h2>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+                <button class="text-[9px] uppercase tracking-widest px-5 py-3 border border-zinc-800 rounded-full text-zinc-400">
+                    Photography
+                </button>
+                <button class="text-[9px] uppercase tracking-widest px-5 py-3 border border-zinc-800 rounded-full text-zinc-400">
+                    Digital Design
+                </button>
+                <button class="text-[9px] uppercase tracking-widest px-5 py-3 border border-zinc-800 rounded-full text-zinc-400">
+                    Logo Design
+                </button>
+            </div>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+            <!-- PHOTOGRAPHY -->
+            <div class="group relative overflow-hidden bg-zinc-900 rounded-lg aspect-[3/4] reveal delay-100">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=1200"
+                     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700"
+                     alt="Photography">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6 md:p-8">
+                    <span class="text-[9px] uppercase tracking-[0.3em] text-zinc-200 mb-1 block font-bold">
+                        Photography
+                    </span>
+                    <h3 class="text-xl md:text-2xl font-light text-white">
+                        Shadows of Intent
+                    </h3>
+                </div>
+            </div>
+
+            <!-- DIGITAL DESIGN -->
+            <div class="group relative overflow-hidden bg-zinc-900 rounded-lg aspect-[3/4] reveal delay-200">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200"
+                     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700"
+                     alt="Digital Design">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6 md:p-8">
+                    <span class="text-[9px] uppercase tracking-[0.3em] text-zinc-200 mb-1 block font-bold">
+                        Digital Design
+                    </span>
+                    <h3 class="text-xl md:text-2xl font-light text-white">
+                        Digital Resonance
+                    </h3>
+                </div>
+            </div>
+
+            <!-- LOGO DESIGN (NEW) -->
+            <div class="group relative overflow-hidden bg-zinc-900 rounded-lg aspect-[3/4] reveal delay-300">
+                <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&q=80&w=1200"
+                     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700"
+                     alt="Logo Design">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6 md:p-8">
+                    <span class="text-[9px] uppercase tracking-[0.3em] text-zinc-200 mb-1 block font-bold">
+                        Logo Design
+                    </span>
+                    <h3 class="text-xl md:text-2xl font-light text-white">
+                        Identity in Marks
+                    </h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    lucide.createIcons();
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
